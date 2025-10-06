@@ -83,6 +83,7 @@
               "ecosystem/wallet-apps/tonkeeper",
               "ecosystem/wallet-apps/web",
               "ecosystem/wallet-apps/dev",
+              "ecosystem/wallet-apps/deep-links",
               "ecosystem/wallet-apps/addresses-workflow"
             ]
           },
