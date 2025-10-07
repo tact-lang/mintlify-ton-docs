@@ -331,6 +331,7 @@
           "techniques/contract-sharding",
           "techniques/security",
           "techniques/gas",
+          "techniques/fee-management",
           "techniques/using-onchain-libraries",
           "techniques/random",
           "techniques/offchaining",
@@ -447,8 +448,8 @@
             ]
           },
           "ton/statuses",
-          "ton/phases-and-fees",
-          "ton/shards",
+          "ton/phases",
+          "ton/fees",
           "ton/limits",
           "ton/config",
           "ton/proofs",
