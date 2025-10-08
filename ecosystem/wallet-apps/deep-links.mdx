@@ -29,9 +29,7 @@ Explore [TON Connect](/ecosystem/ton-connect/index).
 ## Deep links invoices
 
 <Warning>
-
-The TON link `ton://` is less preferred in the ecosystem, but may be useful for simple and tiny one-time payment flow.
-
+  The TON link `ton://` is less preferred in the ecosystem, but may be useful for simple and tiny one-time payment flow.
 </Warning>
 
 ```bash
@@ -51,10 +49,10 @@ ton://{link-body}
 The `ton://` scheme is part of the broader TON blockchain standard, enabling interoperability across different TON-based wallets and services.
 
 #### Example workflows
+
 - Quick payments: Integrate payment requests directly from your website, allowing users to complete transactions with a single tap using ton://transfer links.
 - In-app transactions: Use deep links to facilitate seamless transfers between users within your application.
 - Link to specific transfers: Provide support or history review by linking directly to specific transactions or transfers.
-
 
 ### TON transfer
 
@@ -64,12 +62,11 @@ Opens the pre-filled Send screen and prompts the user to enter the missing data.
 ton://transfer/{ADDRESS}?amount={AMOUNT}&text={TEXT}
 ```
 
-| Parameter   | Description                                                 | Required     |
-|-------------|-------------------------------------------------------------|--------------|
-| `{ADDRESS}` | The recipient's TON address.                                | required     |
-| `amount`    | The amount of TON to send, in nanocoins.                    | optional     |
-| `text`      | A URL-encoded UTF-8 text message to attach to the transfer. | optional     |
-
+| Parameter   | Description                                                 | Required |
+| ----------- | ----------------------------------------------------------- | -------- |
+| `{ADDRESS}` | The recipient's TON address.                                | required |
+| `amount`    | The amount of TON to send, in nanocoins.                    | optional |
+| `text`      | A URL-encoded UTF-8 text message to attach to the transfer. | optional |
 
 #### TON transfer to address
 
@@ -104,7 +101,6 @@ ton://transfer/UQDYzZmfsrGzhObKJUw4gzdeIxEai3jAFbiGKGwxvxHinf4K?text=hello
 
 #### TON Transfer with amount and text comment
 
-
 ```bash scheme
 ton://transfer/{ADDRESS}?amount={AMOUNT}&text={TEXT}
 ```
@@ -121,12 +117,12 @@ Opens the Send screen with an expiry timestamp for the transaction.
 {PREFIX}transfer/{ADDRESS}?amount={AMOUNT}&text={TEXT}&exp={EXPIRY_TIMESTAMP}
 ```
 
-| Parameter   | Description                                                 | Required  |
-|-------------|-------------------------------------------------------------|-----------|
-| `{ADDRESS}` | The recipient's TON address.                                | required  |
-| `amount`    | The amount of TON to send, in nanocoins.                    | optional  |
-| `text`      | A URL-encoded UTF-8 text message to attach to the transfer. | optional  |
-| `exp`       | Expiry timestamp in seconds since the Unix epoch.           | optional  |
+| Parameter   | Description                                                 | Required |
+| ----------- | ----------------------------------------------------------- | -------- |
+| `{ADDRESS}` | The recipient's TON address.                                | required |
+| `amount`    | The amount of TON to send, in nanocoins.                    | optional |
+| `text`      | A URL-encoded UTF-8 text message to attach to the transfer. | optional |
+| `exp`       | Expiry timestamp in seconds since the Unix epoch.           | optional |
 
 The `exp` parameter, like other parameters, must be included when constructing the message to ensure the blockchain rejects transactions with an expired exp.
 
@@ -148,14 +144,13 @@ Opens the Send screen with a jetton transfer. [Jetton](/standard/tokens/jettons/
 ton://transfer/{ADDRESS}?jetton={JETTON_ADDRESS}&amount={AMOUNT}&text={TEXT}
 ```
 
-| Parameter   | Description                                                                  | Required   |
-|-------------|------------------------------------------------------------------------------|------------|
-| `{ADDRESS}` | The recipient's TON address.                                                 | required   |
-| `jetton`    | The jetton master address.                                                   | required   |
-| `amount`    | The amount of TON to send, in nanocoins. Decimals depends on Token metadata. | optional   |
-| `text`      | A URL-encoded UTF-8 text message to attach to the transfer.                  | optional   |
-| `exp`       | Expiry timestamp in seconds since the Unix epoch.                            | optional   |
-
+| Parameter   | Description                                                                  | Required |
+| ----------- | ---------------------------------------------------------------------------- | -------- |
+| `{ADDRESS}` | The recipient's TON address.                                                 | required |
+| `jetton`    | The jetton master address.                                                   | required |
+| `amount`    | The amount of TON to send, in nanocoins. Decimals depends on Token metadata. | optional |
+| `text`      | A URL-encoded UTF-8 text message to attach to the transfer.                  | optional |
+| `exp`       | Expiry timestamp in seconds since the Unix epoch.                            | optional |
 
 #### Transfer default jetton
 
@@ -168,7 +163,6 @@ ton://transfer/{ADDRESS}?jetton={JETTON_ADDRESS}&amount={AMOUNT}&text={TEXT}
 ```bash example transfer 0.005 DUST
 ton://transfer/UQDYzZmfsrGzhObKJUw4gzdeIxEai3jAFbiGKGwxvxHinf4K?jetton=EQBlqsm144Dq6SjbPI4jjZvA1hqTIP3CvHovbIfW_t-SCALE&amount=5000000&text=hello
 ```
-
 
 #### Transfer USDT
 
@@ -190,16 +184,15 @@ Opens the emulation screen or screen with alert about blind signing transactions
 ton://transfer/{ADDRESS}?amount={AMOUNT}&bin={BINARY_DATA}
 ```
 
-| Parameter   | Description                                                                    | Required  |
-|-------------|--------------------------------------------------------------------------------|-----------|
-| `{ADDRESS}` | The recipient's TON address.                                                   | required  |
-| `amount`    | The amount of TON to send, in nanocoins.                                       | optional  |
-| `bin`      | A URL-encoded base64 BoC which will be attached as a body to internal message. | optional  |
+| Parameter   | Description                                                                    | Required |
+| ----------- | ------------------------------------------------------------------------------ | -------- |
+| `{ADDRESS}` | The recipient's TON address.                                                   | required |
+| `amount`    | The amount of TON to send, in nanocoins.                                       | optional |
+| `bin`       | A URL-encoded base64 BoC which will be attached as a body to internal message. | optional |
 
 ```bash
 ton://transfer/UQDYzZmfsrGzhObKJUw4gzdeIxEai3jAFbiGKGwxvxHinf4K?amount=5000000&bin=te6cckECBQEAARUAAUWIAMEY4jHsfgXgPZLLJhtH/oPEOBKZZb6Y4/RJaJnbXc4GDAEBnBSf8D7P51eitphXHiTNAS6WXVDOgcxIxFWf7JICcG9ooFRNCDzTZbHg0mlW6782P8huKd5wzYK3huSVDMGTrQgpqaMXaMF9SAAAACsAAwIBaGIAV+9GxkYnezSj7VSw9vtlmc5RJ5lsyyItoKd5rFDpJZUgL68IAAAAAAAAAAAAAAAAAAEDAaFfzD0Ug3czLfk9/4aAArAmxHNbYrurO/IYyD89+mJZ/XDMnkMemHy/nTsrzYDwAYIxxGPY/AvAeyWWTDaP/QeIcCUyy30xx+iS0TO2u5wMIDgEACIAAAAAUmVmI05PTmQxZ0pCUK4fW14=\
 ```
-
 
 ## Wallet-specific invoices
 
@@ -224,7 +217,6 @@ Find more wallet-specific features in the documentation:
 - Tonkeeper - [docs.tonconsole.com](https://docs.tonconsole.com/tonkeeper/deep-linking)
 - MyTonWallet - [help.mytonwallet.io](https://help.mytonwallet.io/intro/key-features/deeplinks-in-mytonwallet)
 
-
 ## Explorers links
 
 To generate a transaction link, the service must obtain the account address, logical time (lt), and transaction hash by calling the [getTransactions](https://toncenter.com/api/v2/#/transactions/get_transactions_getTransactions_get) method. Using these values, [tonviewer.com](https://tonviewer.com), [tonscan.org](https://tonscan.org), and [explorer.toncoin.org](https://explorer.toncoin.org/) render the transaction page according to the following formats:
@@ -236,10 +228,10 @@ Tonviewer and Tonscan also support external-in message hashes instead of transac
 ```bash Tonviewer Mainnet link
 https://tonviewer.com/transaction/{hash as base64url}
 ```
+
 ```bash Tonviewer Testnet link
 https://testnet.tonviewer.com/transaction/{hash as base64url}
 ```
-
 
 ### Tonscan
 
