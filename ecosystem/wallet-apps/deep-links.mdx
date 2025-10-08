@@ -2,7 +2,7 @@
 "tite": Deep links
 ---
 
-This page provides an overview approaches for interaction with wallets for external services and agents.
+This page provides an overview of approaches for issuing invoices with links for TON wallets.
 
 ## TON Connect invoices
 
@@ -60,8 +60,6 @@ The `ton://` scheme is part of the broader TON blockchain standard, enabling int
 
 Opens the pre-filled Send screen and prompts the user to enter the missing data.
 
-Format:
-
 ```bash Transfer scheme
 ton://transfer/{ADDRESS}?amount={AMOUNT}&text={TEXT}
 ```
@@ -73,7 +71,7 @@ ton://transfer/{ADDRESS}?amount={AMOUNT}&text={TEXT}
 | `text`      | A URL-encoded UTF-8 text message to attach to the transfer. | optional     |
 
 
-#### TON transfer to address only:
+#### TON transfer to address
 
 ```bash scheme
 ton://transfer/{ADDRESS}
@@ -83,7 +81,7 @@ ton://transfer/{ADDRESS}
 ton://transfer/UQDYzZmfsrGzhObKJUw4gzdeIxEai3jAFbiGKGwxvxHinf4K
 ```
 
-#### TON transfer to address with amount:
+#### TON transfer with amount
 
 ```bash scheme
 ton://transfer/{ADDRESS}?amount={AMOUNT}
@@ -94,7 +92,7 @@ ton://transfer/UQDYzZmfsrGzhObKJUw4gzdeIxEai3jAFbiGKGwxvxHinf4K?amount=5000000
 
 ```
 
-#### TON transfer to address with text comment:
+#### TON transfer with text comment
 
 ```bash scheme
 ton://transfer/{ADDRESS}?text={TEXT}
@@ -104,7 +102,7 @@ ton://transfer/{ADDRESS}?text={TEXT}
 ton://transfer/UQDYzZmfsrGzhObKJUw4gzdeIxEai3jAFbiGKGwxvxHinf4K?text=hello
 ```
 
-#### Address with amount and text comment:
+#### TON Transfer with amount and text comment
 
 
 ```bash scheme
@@ -142,14 +140,13 @@ The `exp` parameter, like other parameters, must be included when constructing t
 ton://transfer/EQD2NmD_lH5f5u1Kj3KfGyTvhZSX0Eg6qp2a5IQUKXxOG21n?amount=100000&text=test&exp=2147483647
 ```
 
-### Transfer jetton
+### Jetton transfer
 
 Opens the Send screen with a jetton transfer. [Jetton](/standard/tokens/jettons/overview) is a standard for TON assets, like USDT, USDC and e.t.c.
 
 ```bash Scheme
 ton://transfer/{ADDRESS}?jetton={JETTON_ADDRESS}&amount={AMOUNT}&text={TEXT}
 ```
-Parameters:
 
 | Parameter   | Description                                                                  | Required   |
 |-------------|------------------------------------------------------------------------------|------------|
@@ -175,7 +172,7 @@ ton://transfer/UQDYzZmfsrGzhObKJUw4gzdeIxEai3jAFbiGKGwxvxHinf4K?jetton=EQBlqsm14
 
 #### Transfer USDT
 
-USDT decimals is 6. This means one unit equal 1000000 in amount.
+USDT decimals are 6. This means 1 USDT unit equal 1000000 in amount value.
 
 ```bash scheme
 ton://transfer/{ADDRESS}?jetton={JETTON_ADDRESS}&amount={AMOUNT}&text={TEXT}
@@ -183,6 +180,24 @@ ton://transfer/{ADDRESS}?jetton={JETTON_ADDRESS}&amount={AMOUNT}&text={TEXT}
 
 ```bash example transfer 0.005 USDT
 ton://transfer/UQDYzZmfsrGzhObKJUw4gzdeIxEai3jAFbiGKGwxvxHinf4K?jetton=EQCxE6mUtQJKFnGfaROTKOt1lZbDiiX1kCixRv7Nw2Id_sDs&amount=5000&text=hello
+```
+
+### Transfer with binary data
+
+Opens the emulation screen or screen with alert about blind signing transactions with amount and destionation.
+
+```bash scheme
+ton://transfer/{ADDRESS}?amount={AMOUNT}&bin={BINARY_DATA}
+```
+
+| Parameter   | Description                                                                    | Required  |
+|-------------|--------------------------------------------------------------------------------|-----------|
+| `{ADDRESS}` | The recipient's TON address.                                                   | required  |
+| `amount`    | The amount of TON to send, in nanocoins.                                       | optional  |
+| `bin`      | A URL-encoded base64 BoC which will be attached as a body to internal message. | optional  |
+
+```bash
+ton://transfer/UQDYzZmfsrGzhObKJUw4gzdeIxEai3jAFbiGKGwxvxHinf4K?amount=5000000&bin=te6cckECBQEAARUAAUWIAMEY4jHsfgXgPZLLJhtH/oPEOBKZZb6Y4/RJaJnbXc4GDAEBnBSf8D7P51eitphXHiTNAS6WXVDOgcxIxFWf7JICcG9ooFRNCDzTZbHg0mlW6782P8huKd5wzYK3huSVDMGTrQgpqaMXaMF9SAAAACsAAwIBaGIAV+9GxkYnezSj7VSw9vtlmc5RJ5lsyyItoKd5rFDpJZUgL68IAAAAAAAAAAAAAAAAAAEDAaFfzD0Ug3czLfk9/4aAArAmxHNbYrurO/IYyD89+mJZ/XDMnkMemHy/nTsrzYDwAYIxxGPY/AvAeyWWTDaP/QeIcCUyy30xx+iS0TO2u5wMIDgEACIAAAAAUmVmI05PTmQxZ0pCUK4fW14=\
 ```
 
 
@@ -214,11 +229,34 @@ Find more wallet-specific features in the documentation:
 
 To generate a transaction link, the service must obtain the account address, logical time (lt), and transaction hash by calling the [getTransactions](https://toncenter.com/api/v2/#/transactions/get_transactions_getTransactions_get) method. Using these values, [tonviewer.com](https://tonviewer.com), [tonscan.org](https://tonscan.org), and [explorer.toncoin.org](https://explorer.toncoin.org/) render the transaction page according to the following formats:
 
-`https://tonviewer.com/transaction/{hash as base64url}`
+Tonviewer and Tonscan also support external-in message hashes instead of transaction hashes for explorer links. This is useful when generating an external message and needing an instant transaction link.
 
-`https://tonscan.org/tx/{lt as int}:{hash as base64url}:{account address}`
+### Tonviewer
 
-`https://explorer.toncoin.org/transaction?account={account address}&lt={lt as int}&hash={hash as base64url}`
+```bash Tonviewer Mainnet link
+https://tonviewer.com/transaction/{hash as base64url}
+```
+```bash Tonviewer Testnet link
+https://testnet.tonviewer.com/transaction/{hash as base64url}
+```
 
-**Note:** **Tonviewer** and **Tonscan** also support external-in message hashes instead of transaction hashes for explorer links. This is useful when generating an external message and needing an instant transaction link. Learn more about transaction and message hashes [here](/v3/guidelines/dapps/cookbook#how-to-find-transaction-or-message-hash).
 
+### Tonscan
+
+```bash Tonscan Mainnet link
+https://tonscan.org/tx/{lt as int}:{hash as base64url}:{account address}
+```
+
+```bash Tonscan Testnet link
+https://testnet.tonscan.org/tx/{lt as int}:{hash as base64url}:{account address}
+```
+
+### Toncoin explorer
+
+```bash Tonscan Mainnet link
+https://explorer.toncoin.org/transaction?account={account address}&lt={lt as int}&hash={hash as base64url}
+```
+
+```bash Tonscan Testnet link
+https://test-explorer.toncoin.org/transaction?account={account address}&lt={lt as int}&hash={hash as base64url}
+```
