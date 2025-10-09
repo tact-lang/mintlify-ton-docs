@@ -460,6 +460,7 @@
           "ton/shards",
           "ton/limits",
           "ton/config",
+          "ton/changing-params",
           "ton/proofs",
           "ton/consensus",
           "ton/system-contracts",
