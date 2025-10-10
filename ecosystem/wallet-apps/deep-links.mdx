@@ -166,7 +166,7 @@ ton://transfer/UQDYzZmfsrGzhObKJUw4gzdeIxEai3jAFbiGKGwxvxHinf4K?jetton=EQBlqsm14
 
 #### Transfer USDT
 
-USDT decimals are 6. This means 1 USDT unit equal 1000000 in amount value.
+While Toncoin requires nine decimal places and 1 Toncoin equals 1 billion ($10^9$) nanoToncoin, USDT only uses six decimal places. This means that 1 USDT unit stands for 1 million ($10^6$) microUSDT units. The `AMOUNT` below requires the microUSDT format.
 
 ```bash scheme
 ton://transfer/{ADDRESS}?jetton={JETTON_ADDRESS}&amount={AMOUNT}&text={TEXT}
