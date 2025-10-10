@@ -238,7 +238,8 @@
                     "openapi": "./ecosystem/rpc/ton-center-http-api-v-3.yaml"
                   }
                 ]
-              }
+              },
+              "ecosystem/rpc/price"
             ]
           },
           {
@@ -306,7 +307,6 @@
                   "standard/tokens/jettons/API",
                   "standard/tokens/jettons/mintless/overview",
                   "standard/tokens/jettons/mintless/how-to-deploy"
-
                 ]
               },
               {
