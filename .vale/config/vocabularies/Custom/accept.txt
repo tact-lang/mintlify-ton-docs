@@ -30,6 +30,7 @@ Brodie
 Brujn
 Buildx
 Burnosov
+Buterin
 CEX(s|es)?
 CLion
 CMake
@@ -100,6 +101,7 @@ Interchain
 Jetbrains
 Jettons
 Kademlia
+Kelmer
 Kiayas
 Kol
 Kolya
@@ -116,6 +118,7 @@ MTProto
 MTon
 Mainnet
 Masterchain
+Maymounkov
 Memoizing
 Merkle
 Metaverse
@@ -145,6 +148,7 @@ PRNGs
 Pavel
 Pease
 Permissionless
+Peyton
 Phaser
 Precompiled
 Preloads
@@ -173,6 +177,7 @@ Schnorr
 Sedov
 Serializable
 Sharding
+Shokrollahi
 Shostak
 Singlechain
 Snarkjs
@@ -180,6 +185,7 @@ Solana
 Soulbound
 Spellbook
 Stablecoins?
+Syverson
 TEPs
 TMAs
 TVM('s|s)?
@@ -209,6 +215,7 @@ Unary
 Underload
 Uninit
 Universa
+Upgradability
 VMs
 VPNs
 VSCodium
@@ -373,6 +380,7 @@ codepages?
 codepoints?
 codespaces?
 codomain
+cofactors?
 combinator('s|s)?
 componentwise
 composable
@@ -483,6 +491,7 @@ Gigatons
 Gilmanova
 Gitpod
 globals
+Goldschlag
 Golev
 Grafana
 globals
@@ -540,7 +549,9 @@ Kol
 Kol
 Kolya
 kTon
+Larimer
 Latinisms
+Luby
 leaderboard
 leaderboard
 linkability
@@ -603,6 +614,7 @@ multisignature
 mytoncore
 mytonctrl
 namespace
+Nakamoto
 Namespace
 namespace
 namespaces?
@@ -775,6 +787,7 @@ stdlib
 STON.fi
 styleguide
 subarrays
+subcases?
 subcell
 subcolumn
 subcolumnTblkch
