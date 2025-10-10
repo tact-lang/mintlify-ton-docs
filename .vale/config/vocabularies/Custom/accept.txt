@@ -52,8 +52,7 @@ Cryptobot
 Cryptocurrencies
 DApps?
 DEX(s|es)?
-(?i)Decompilation
-(?i)Decompiled
+(?i)Decompil(ation|ed|er)
 DHTs?
 D_m
 Daniil
