@@ -302,6 +302,7 @@
                   "standard/tokens/jettons/comparison",
                   "standard/tokens/jettons/how-to-mint",
                   "standard/tokens/jettons/how-to-transfer",
+                  "standard/tokens/jettons/how-to-burning",
                   "standard/tokens/jettons/how-to-get-supply-data",
                   "standard/tokens/jettons/API",
                   "standard/tokens/jettons/mintless/overview",
