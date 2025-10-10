@@ -2,4 +2,92 @@
 title: "Overview"
 ---
 
-Stub
+import { Aside } from '/snippets/aside.jsx';
+
+This article provides an overview of wallet applications built on the standard [wallet contract](/standard/wallets/how-it-works), describing their _creation, operation, transaction handling, and classification_.
+
+## How wallet apps work
+
+Wallets manage accounts, control keys, sign messages, and initiate transactions. This process starts with mnemonic decoding and continues through transaction execution.
+
+### Mnemonic decoding
+
+A **mnemonic (seed phrase)** is a human-readable sequence of 24 words that generates a **key pair**, which a wallet uses to manage the account.
+
+The key pair consists of:
+- **Private key** signs messages and authorizes transactions.
+- **Public key** is stored in the wallet's smart contract to verify signatures of incoming messages.
+
+A mnemonic allows the user **to recover** the wallet and key pair on the same wallet app or any compatible implementation. Losing it results in permanent loss of access.
+
+<Aside type="caution">
+  Keep it secret. Keep it safe.
+</Aside>
+
+With the derived keys, the wallet can establish an on-chain account.
+
+### Account creation
+
+A wallet account starts in the [nonexist state](/ton/statuses#status-variety), which is the default for accounts with no transaction history, code, data, or balance. At this stage, the account does not exist on-chain.
+
+However, its **wallet address** can be computed from the [workchain_id](/ton/addresses/addresses-general-info#workchain-id) and [account_id](/ton/addresses/addresses-general-info#account-id). This address can be used to receive funds even before the wallet is initialized.
+
+After receiving coins, the account enters the [uninit state](/ton/statuses#status-variety). In this state, it holds a balance and metadata but cannot execute transactions or process messages.
+
+### First transaction
+
+The wallet account becomes **active** when its code and data are deployed.
+It happens when the wallet sends its first transaction, which finalizes activation and enables interaction with the blockchain.
+
+In the [active state](/ton/statuses#status-variety), the account:
+- Contains deployed contract code, persistent data, and a balance.
+- Can process incoming and outgoing messages.
+- Can sign and send transactions using its private key.
+
+### Transaction process
+
+When making a transaction, the wallet goes through these steps:
+- **Message creation** — builds an external message with the recipient, amount, and optional payload.
+- **Sequence number check** — reads the account's current on-chain `seqno` and includes it to prevent [replay attacks](/standard/wallets/how-it-works#how-replay-protection-works).
+- **Signing** — signs the message with the private key.
+- **Submission** — sends the signed message to the blockchain.
+
+**On-chain execution:**
+- Validators verify the signature using the **public key** stored in the wallet contract.
+- Fees are applied and the `seqno` is incremented.
+- The account balance and state reflect the transaction outcome.
+
+## Wallet types
+
+Wallets are classified by how they manage private keys, store them, and their intended usage.
+
+### Custodial and non-custodial
+
+Wallets are defined by _how private keys are managed_.
+
+- **Custodial wallets** store private keys with a third party, such as an exchange or service provider. The custodian manages security and may provide account recovery. However, users must trust the custodian with full access to their assets.
+- **Non-custodial or self-custody wallets** store private keys only with the user. Keys are protected with a **seed phrase** — a sequence of 24 words generated at wallet creation. This gives the user _complete ownership_ and _control over their data_. However, full responsibility also applies: losing the seed phrase means permanent loss of access.
+
+### Hardware and software
+
+The storage of private keys defines wallet types — _online (hot) or offline (cold)_.
+
+- **Hardware (cold) wallets** are physical devices that keep private keys offline, isolated from internet exposure. When authorizing a transaction, the device signs it internally, ensuring that private keys remain on the device.
+- **Software (hot) wallets** run on devices such as smartphones or computers. Private keys are stored in the device’s secure storage, making them readily available for transactions but also exposed to online risks. Software wallets include **mobile**, **web**, and **desktop** applications.
+
+
+### Developer and user
+
+Wallets differ by their intended use.
+
+- **User wallets** are designed for everyday operations, including storing, sending, and receiving Toncoin or tokens, as well as interacting with applications. Their design emphasizes usability and accessibility.
+- **Developer wallets** are designed for testing and development purposes. They are typically used with Testnet, SDKs, or command-line tools to deploy contracts, generate keys, and send transactions in controlled environments.
+
+
+<Aside type="caution">
+  Developer wallets, such as TonDevWallet, are intended for Testnet only. Do **not** use them on Mainnet, as this may result in irreversible loss of funds.
+</Aside>
+
+## Wallet apps
+
+_Explore the full range of wallets at [ton.org](https://ton.org/en/wallets?locale=en&pagination[limit]=-1)._
