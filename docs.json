@@ -414,6 +414,16 @@
         "pages": [
           "tvm/overview",
           {
+            "group": "Tools",
+            "pages": [
+              "tvm/tools/overview",
+              "tvm/tools/txtracer",
+              "tvm/tools/retracer",
+              "tvm/tools/tvm-explorer",
+              "tvm/tools/ton-decompiler"
+            ]
+          },
+          {
             "group": "Serialization",
             "pages": [
               "tvm/serialization/cells",

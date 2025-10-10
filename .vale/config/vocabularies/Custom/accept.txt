@@ -53,6 +53,7 @@ Cryptobot
 Cryptocurrencies
 DApps?
 DEX(s|es)?
+(?i)Decompil(ation|ed|er)
 DHTs?
 D_m
 Daniil
@@ -163,6 +164,7 @@ Reindexing
 Relatedly
 Reputational
 Reth
+(?i)Retracer
 Revm
 Ristretto
 Rollup
