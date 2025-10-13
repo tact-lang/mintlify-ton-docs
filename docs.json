@@ -348,6 +348,7 @@
           "techniques/examples",
           "techniques/carry-value",
           "techniques/contract-sharding",
+          "techniques/vanity",
           "techniques/security",
           "techniques/gas",
           "techniques/using-onchain-libraries",
@@ -423,6 +424,7 @@
         "group": "TVM: TON Virtual Machine",
         "pages": [
           "tvm/overview",
+          "tvm/how-it-works",
           {
             "group": "Serialization",
             "pages": [
