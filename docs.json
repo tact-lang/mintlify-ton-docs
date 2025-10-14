@@ -245,7 +245,8 @@
                     }
                   }
                 ]
-              }
+              },
+              "ecosystem/rpc/price"
             ]
           },
           {
