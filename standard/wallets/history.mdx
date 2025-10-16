@@ -4,6 +4,7 @@ sidebarTitle: "History"
 ---
 
 import { Aside } from '/snippets/aside.jsx'
+import { Image } from '/snippets/image.jsx';
 
 You may have heard about different versions of wallets on TON Blockchain. But what do these versions actually mean, and how do they differ?
 
@@ -271,7 +272,11 @@ As you can see, the fourth version still provides standard functionality through
 
 It is the most modern wallet version at the moment, developed by the Tonkeeper team, aimed at replacing V4 and allowing arbitrary extensions.
 
-![v5](/resources/images/wallets/wallet-contract-V5.png)
+<Image
+  src="/resources/images/wallets/wallet_contract_v5_light.svg"
+  darkSrc="/resources/images/wallets/wallet_contract_v5_dark.svg"
+  alt="Wallet contract V5"
+/>
 
 The V5 wallet standard offers many benefits that improve the experience for both users and merchants. V5 supports gasless transactions, account delegation and recovery, subscription payments using tokens and Toncoin, and low-cost multi-transfers. In addition to retaining the previous functionality (V4), the new contract allows you to send up to 255 messages at a time.
 
@@ -393,7 +398,11 @@ We can consider `InnerRequest` as two lists of actions: the first, `OutList`, is
 
 Starting with v5, the wallet smart contract supports owner-signed internal messages (`internal_signed`), which enables gasless transactions—for example, paying network fees in USDt when transferring USDt. The common scheme looks like this:
 
-![Gasless transaction flow diagram](/resources/images/wallets/gasless.jpg)
+<Image
+  src="/resources/images/wallets/gasless_light.svg"
+  darkSrc="/resources/images/wallets/gasless_dark.svg"
+  alt="Gasless transaction flow diagram"
+/>
 
 #### Flow
 
