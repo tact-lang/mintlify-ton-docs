@@ -343,7 +343,8 @@
                 "pages": [
                   "standard/tokens/nft/overview",
                   "standard/tokens/nft/how-works",
-                  "standard/tokens/nft/comparison",
+                  "standard/tokens/nft/reference-implementation",
+                  "standard/tokens/nft/сomparison",
                   "standard/tokens/nft/cNFT-how-it-works"
                 ]
               },
