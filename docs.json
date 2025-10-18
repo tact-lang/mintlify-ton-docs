@@ -461,8 +461,14 @@
               "tvm/serialization/boc"
             ]
           },
-          "tvm/exit-codes",
           "tvm/builders-and-slices",
+          "tvm/continuations",
+          "tvm/registers",
+          "tvm/exit-codes",
+          "tvm/gas",
+          "tvm/libraries",
+          "tvm/initialization",
+          "tvm/exit-codes",
           "tvm/instructions",
           "tvm/changelog"
         ]
